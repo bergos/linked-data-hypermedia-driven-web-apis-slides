@@ -39,306 +39,192 @@
 		<div class="reveal">
 
 			<div class="slides">
-        <section>
-          <section>
-            <h1>Linked Data & Hypermedia-Driven Web APIs</h1>
 
-            <p>
-              <small>
-                Thomas Bergwinkl
-                <a href="https://twitter.com/bergi_bergos">@bergi_bergos</a>
-              </small>
-            </p>
-          </section>
+                <!-- Linked Data & Hypermedia-Driven Web APIs -->
 
-          <section>
-            <h2>Agenda</h2>
+                <section>
+                    <section>
+                        <h1>Linked Data & Hypermedia-Driven Web APIs</h1>
+                        <p>
+                            Thomas Bergwinkl
 
-            <ul>
-              <li>
-                Linked Data
-                <ul>
-                  <li>RDF Konzepte</li>
-                  <li>Formate</li>
-                  <li>TODO: weitere Standards</li>
-                  <li>TODO: Verwendung</li>
-                  <li>RDF & JavaScript (RDF-Ext)</li>
-                </ul>
-              </li>
-              <li>
-                Hypermedia-Driven Web APIs
-                <ul>
-                  <li>Idee</li>
-                  <li>Hydra</li>
-                </ul>
-              </li>
-              <li>
-                Linked Data Hypermedia-Driven Web APIs für Home Automation
-              </li>
-            </ul>
-          </section>
-        </section>
+                        </p>
+                        <small>
+                            Chief Research Officer, <a href="http://www.zazuko.com">Zazuko</a><br>
+                            Software Engineer, <a href="http://www.bulwiengesa.de">bulwiengesa</a><br>
+                            <a href="https://twitter.com/bergi_bergos">@bergi_bergos</a>
+                        </small>
 
-				<section>
-          <section>
-            <h1>Linked Data</h1>
-          </section>
+                    </section>
 
-          <section>
-            <h2>RDF Konzept</h2>
-          </section>
+                    <section>
+                        <h2>Agenda</h2>
+                            <ul>
+                                <li>
+                                    Linked Data
+                                    <ul>
+                                        <li>RDF Konzepte</li>
+                                        <li>Formate</li>
+                                        <li>weitere Standards</li>
+                                        <li>Verbreitung</li>
+                                        <li>RDF & JavaScript (RDF-Ext)</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Hypermedia-Driven Web APIs
+                                    <ul>
+                                        <li>Idee</li>
+                                        <li>Hydra</li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    Linked Data Hypermedia-Driven Web APIs für Home Automation
+                                </li>
+                            </ul>
+                        </section>
+                    </section>
 
-          <section>
-            <h3>Im Anfang war <del>das Wort</del> die Tabelle</h3>
+                <!-- Linked Data -->
 
-            <div style="float: left;">
-              <h4>User</h4>
-              <table>
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>Thomas Bergwinkl</td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>Melvin Carvalho</td>
-                  </tr>
-                  <tr>
-                    <td>3</td>
-                    <td>Andrei Sambra</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>Nicola Greco</td>
-                  </tr>
-                </tbody>
-              </table>
-              </div>
+                <section>
+                    <section>
+                        <h1>Linked Data</h1>
+                    </section>
 
-              <div style="float: right;">
-                <h4>Knows</h4>
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Source</th>
-                      <th>Target</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>2</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>3</td>
-                    </tr>
-                    <tr>
-                      <td>1</td>
-                      <td>4</td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-          </section>
+                    <!-- RDF Konzept -->
 
-          <section>
-            <h3>Dann kam die IRI</h3>
+                    <section>
+                        <h2>RDF Konzept</h2>
+                    </section>
 
-            <div style="float: left;">
-              <h4>User</h4>
-              <table>
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>Thomas Bergwinkl</td>
-                </tr>
-                <tr>
-                  <td>http://melvincarvalho.com/#me</td>
-                  <td>Melvin Carvalho</td>
-                </tr>
-                <tr>
-                  <td>https://deiu.rww.io/profile/card#me</td>
-                  <td>Andrei Sambra</td>
-                </tr>
-                <tr>
-                  <td>https://nicola.databox.me/profile/card#me</td>
-                  <td>Nicola Greco</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+                    <section>
+                        <h3>Im Anfang war <del>das Wort</del> die Tabelle</h3>
+                        <div style="float: left;">
+                            <h4>User</h4>
+                            <table>
+                                <thead>
+                                    <tr><th>ID</th><th>Name</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>Thomas Bergwinkl</td></tr>
+                                    <tr><td>2</td><td>Melvin Carvalho</td></tr>
+                                    <tr><td>3</td><td>Andrei Sambra</td></tr>
+                                    <tr><td>4</td><td>Nicola Greco</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="float: right;">
+                            <h4>Knows</h4>
+                            <table>
+                                <thead>
+                                    <tr><th>Source</th><th>Target</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>1</td><td>2</td></tr>
+                                    <tr><td>1</td><td>3</td></tr>
+                                    <tr><td>1</td><td>4</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
 
-            <div style="float: right;">
-              <h4>Knows</h4>
-              <table>
-                <thead>
-                <tr>
-                  <th>Source</th>
-                  <th>Target</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>http://melvincarvalho.com/#me</td>
-                </tr>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>https://deiu.rww.io/profile/card#me</td>
-                </tr>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>https://nicola.databox.me/profile/card#me</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+                    <section>
+                        <h3>Dann kam die IRI</h3>
+                        <div style="float: left;">
+                            <h4>User</h4>
+                            <table>
+                                <thead>
+                                    <tr><th>ID</th><th>Name</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>Thomas Bergwinkl</td></tr>
+                                    <tr><td>http://melvincarvalho.com/#me</td><td>Melvin Carvalho</td></tr>
+                                    <tr><td>https://deiu.rww.io/profile/card#me</td><td>Andrei Sambra</td></tr>
+                                    <tr><td>https://nicola.databox.me/profile/card#me</td><td>Nicola Greco</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="float: right;">
+                            <h4>Knows</h4>
+                            <table>
+                                <thead>
+                                    <tr><th>Source</th><th>Target</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://melvincarvalho.com/#me</td></tr>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>https://deiu.rww.io/profile/card#me</td></tr>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>https://nicola.databox.me/profile/card#me</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
 
-          <section>
-            <h3>Dann das Predicate</h3>
+                    <section>
+                        <h3>Dann das Predicate</h3>
+                        <div style="float: left;">
+                            <h4>http://schema.org/name</h4>
+                            <table>
+                                <thead>
+                                    <tr><th>ID</th><th>Name</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>Thomas Bergwinkl</td></tr>
+                                    <tr><td>http://melvincarvalho.com/#me</td><td>Melvin Carvalho</td></tr>
+                                    <tr><td>https://deiu.rww.io/profile/card#me</td><td>Andrei Sambra</td></tr>
+                                    <tr><td>https://nicola.databox.me/profile/card#me</td><td>Nicola Greco</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div style="float: right;">
+                            <h4>http://schema.org/knows</h4>
+                            <table>
+                                <thead>
+                                    <tr><th>Source</th><th>Target</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://melvincarvalho.com/#me</td></tr>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>https://deiu.rww.io/profile/card#me</td></tr>
+                                    <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>https://nicola.databox.me/profile/card#me</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
 
-            <div style="float: left;">
-              <h4>http://schema.org/name</h4>
-              <table>
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Name</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>Thomas Bergwinkl</td>
-                </tr>
-                <tr>
-                  <td>http://melvincarvalho.com/#me</td>
-                  <td>Melvin Carvalho</td>
-                </tr>
-                <tr>
-                  <td>https://deiu.rww.io/profile/card#me</td>
-                  <td>Andrei Sambra</td>
-                </tr>
-                <tr>
-                  <td>https://nicola.databox.me/profile/card#me</td>
-                  <td>Nicola Greco</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
+                    <section>
+                        <h3>Dann die Triples</h3>
+                        <h4>Triples</h4>
+                        <table>
+                            <thead>
+                                <tr><th>Subject</th><th>Predicate</th><th>Object</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://schema.org/name</td><td>Thomas Bergwinkl</td></tr>
+                                <tr><td>http://melvincarvalho.com/#me</td><td>http://schema.org/name</td><td>Melvin Carvalho</td></tr>
+                                <tr><td>https://deiu.rww.io/profile/card#me</td><td>http://schema.org/name</td><td>Andrei Sambra</td></tr>
+                                <tr><td>https://nicola.databox.me/profile/card#me</td><td>http://schema.org/name</td><td>Nicola Greco</td></tr>
+                                <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://schema.org/knows</td><td>http://melvincarvalho.com/#me</td></tr>
+                                <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://schema.org/knows</td><td>https://deiu.rww.io/profile/card#me</td></tr>
+                                <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://schema.org/knows</td><td>https://nicola.databox.me/profile/card#me</td></tr>
+                            </tbody>
+                        </table>
+                    </section>
 
-            <div style="float: right;">
-              <h4>http://schema.org/knows</h4>
-              <table>
-                <thead>
-                <tr>
-                  <th>Source</th>
-                  <th>Target</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>http://melvincarvalho.com/#me</td>
-                </tr>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>https://deiu.rww.io/profile/card#me</td>
-                </tr>
-                <tr>
-                  <td>https://www.bergnet.org/people/bergi/card#me</td>
-                  <td>https://nicola.databox.me/profile/card#me</td>
-                </tr>
-                </tbody>
-              </table>
-            </div>
-          </section>
+                    <section>
+                        <h3></h3>
+                        <ul>
+                            <li><a href="http://www.w3.org/TR/rdf11-concepts/">RDF 1.1 Concepts and Abstract Syntax</a></li>
+                        </ul>
+                    </section>
 
-          <section>
-            <h3>Dann die Triples</h3>
+                    <!-- Formate -->
 
-            <h4>Triples</h4>
-            <table>
-              <thead>
-              <tr>
-                <th>Subject</th>
-                <th>Predicate</th>
-                <th>Object</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr>
-                <td>https://www.bergnet.org/people/bergi/card#me</td>
-                <td>http://schema.org/name</td>
-                <td>Thomas Bergwinkl</td>
-              </tr>
-              <tr>
-                <td>http://melvincarvalho.com/#me</td>
-                <td>http://schema.org/name</td>
-                <td>Melvin Carvalho</td>
-              </tr>
-              <tr>
-                <td>https://deiu.rww.io/profile/card#me</td>
-                <td>http://schema.org/name</td>
-                <td>Andrei Sambra</td>
-              </tr>
-              <tr>
-                <td>https://nicola.databox.me/profile/card#me</td>
-                <td>http://schema.org/name</td>
-                <td>Nicola Greco</td>
-              </tr>
+                    <section>
+                        <h2>Formate</h2>
+                    </section>
 
-              <tr>
-                <td>https://www.bergnet.org/people/bergi/card#me</td>
-                <td>http://schema.org/knows</td>
-                <td>http://melvincarvalho.com/#me</td>
-              </tr>
-              <tr>
-                <td>https://www.bergnet.org/people/bergi/card#me</td>
-                <td>http://schema.org/knows</td>
-                <td>https://deiu.rww.io/profile/card#me</td>
-              </tr>
-              <tr>
-                <td>https://www.bergnet.org/people/bergi/card#me</td>
-                <td>http://schema.org/knows</td>
-                <td>https://nicola.databox.me/profile/card#me</td>
-              </tr>
-              </tbody>
-            </table>
-          </section>
-
-          <section>
-                        <pre>
-              <https://www.bergnet.org/people/bergi/card#me>
-                <http://schema.org/knows>
-                  <http://melvincarvalho.com/#me>,
-                  <https://deiu.rww.io/profile/card#me>,
-                  <https://nicola.databox.me/profile/card#me> .
-            </pre>
-          </section>
-
-          <section>
-            <h2>Formate</h2>
-          </section>
-
-          <section>
-            <h3>N-Triples</h3>
-
-            <!--
+                    <section>
+                        <h3>N-Triples</h3>
+                        <!--
 
 <https://www.bergnet.org/people/bergi/card#me> <http://schema.org/name> "Thomas Bergwinkl" .
 <https://www.bergnet.org/people/bergi/card#me> <http://schema.org/knows> <http://melvincarvalho.com/#me> .
@@ -348,21 +234,20 @@
 <https://deiu.rww.io/profile/card#me> <http://schema.org/name> "Andrei Sambra" .
 <https://nicola.databox.me/profile/card#me> <http://schema.org/name> "Nicola Greco" .
 
-            -->
+                        -->
 
-            <pre><code>&lt;https://www.bergnet.org/people/bergi/card#me&gt; &lt;http://schema.org/name&gt; &quot;Thomas Bergwinkl&quot; .
+                        <pre><code>&lt;https://www.bergnet.org/people/bergi/card#me&gt; &lt;http://schema.org/name&gt; &quot;Thomas Bergwinkl&quot; .
 &lt;https://www.bergnet.org/people/bergi/card#me&gt; &lt;http://schema.org/knows&gt; &lt;http://melvincarvalho.com/#me&gt; .
 &lt;https://www.bergnet.org/people/bergi/card#me&gt; &lt;http://schema.org/knows&gt; &lt;https://deiu.rww.io/profile/card#me&gt; .
 &lt;https://www.bergnet.org/people/bergi/card#me&gt; &lt;http://schema.org/knows&gt; &lt;https://nicola.databox.me/profile/card#me&gt; .
 &lt;http://melvincarvalho.com/#me&gt; &lt;http://schema.org/name&gt; &quot;Melvin Carvalho&quot; .
 &lt;https://deiu.rww.io/profile/card#me&gt; &lt;http://schema.org/name&gt; &quot;Andrei Sambra&quot; .
 &lt;https://nicola.databox.me/profile/card#me&gt; &lt;http://schema.org/name&gt; &quot;Nicola Greco&quot; .</code></pre>
-          </section>
+                    </section>
 
-          <section>
-            <h3>Turtle</h3>
-
-            <!--
+                    <section>
+                        <h3>Turtle</h3>
+                        <!--
 
 @prefix s: <http://schema.org/> .
 
@@ -382,9 +267,8 @@
 <https://nicola.databox.me/profile/card#me>
   <s:name> "Nicola Greco" .
 
-            -->
-
-            <pre><code>@prefix s: &lt;http://schema.org/&gt; .
+                        -->
+                        <pre><code>@prefix s: &lt;http://schema.org/&gt; .
 
 &lt;https://www.bergnet.org/people/bergi/card#me&gt;
   &lt;s:name&gt; &quot;Thomas Bergwinkl&quot; ;
@@ -401,12 +285,11 @@
 
 &lt;https://nicola.databox.me/profile/card#me&gt;
   &lt;s:name&gt; &quot;Nicola Greco&quot; .</code></pre>
-          </section>
+                    </section>
 
-          <section>
-            <h3>JSON-LD</h3>
-
-            <!--
+                    <section>
+                        <h3>JSON-LD</h3>
+                        <!--
 
 {
   "@context": {
@@ -440,9 +323,8 @@
   ]
 }
 
-            -->
-
-            <pre><code>{
+                        -->
+                        <pre><code>{
   "@context": {
     "@vocab": "http://schema.org/",
     "knows": {
@@ -466,117 +348,179 @@
       "https://nicola.databox.me/profile/card#me"
     ],
     "name": "Thomas Bergwinkl"
-  }]
+  }]}</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>weitere Standards</h3>
+                        <ul>
+                            <li class="fragment">RDFa</li>
+                            <li class="fragment">Microformats</li>
+                            <li class="fragment">RDF Schema</li>
+                            <li class="fragment">Web Ontology Language OWL</li>
+                            <li class="fragment">SPARQL</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>Verbreitung</h2>
+                        <ul>
+                            <li class="fragment">Metadaten in Adobe Dateiformaten (<a href="http://www.adobe.com/products/xmp.html">XMP</a>)</li>
+                            <li class="fragment"><a href="http://www.rssboard.org/rss-0-9-0">RSS 0.90</a></li>
+                            <li class="fragment">Wikipedia (<a href="https://query.wikidata.org/">Wikidata Query Service</a>)</li>
+                            <li class="fragment">Gmail (<a href="https://developers.google.com/gmail/markup/reference/formats/json-ld">Email Markup</a>)</li>
+                            <li class="fragment">Google (<a href="https://developers.google.com/structured-data/schema-org">Structured Data</a>)</li>
+                            <li class="fragment">Facebook (<a href="http://ogp.me/">The Open Graph protocol</a>)</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h2>RDF & JavaScript (RDF-Ext)</h2>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript Bibliotheken</h3>
+                        <ul>
+                            <li>JSON-LD</li>
+                            <li>N3.js</li>
+                            <li>rdflib.js</li>
+                            <li>RDF-Ext</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>RDF-Ext - Parser und Serializer</h3>
+                        <ul>
+                            <li>Unterstützung für die verbreitetsten Formate (Turtle, JSON-LD, XML)</li>
+                            <li>Callback, Promise und Streaming Interface</li>
+                        </ul>
+                    </section>
+
+                    <section>
+                        <h3>RDF-Ext - Clownface für Graph Traversierung</h3>
+                        <pre><code>TODO:</code></pre>
+                    </section>
+
+                    <section>
+                        <h3>RDF-Ext - SimpleRDF Graph to Object Mapping</h3>
+                        <pre><code>TODO:</code></pre>
+                    </section>
+                </section>
+
+                <!-- Hypermedia-Driven Web APIs -->
+
+                <section>
+                    <section>
+                        <h1>Hypermedia-Driven Web APIs</h1>
+                    </section>
+
+                    <!-- Idee -->
+
+                    <section>
+                        <h2>Idee</h2>
+
+                        <p class="fragment">HTML Interfaces enthalten Elemente für die Navigation</p>
+                        <p class="fragment">APIs sollten sich ebenfalls selbst beschreiben</p>
+                        <p class="fragment">Die Beschreibung sollte maschinenlesbar sein</p>
+                        <p class="fragment">Dezentralle Strukturen erlauben</p>
+                    </section>
+
+                    <section>
+                        <h3>Links in APIs</h3>
+                        <p>
+                            <strong>Hypermedia as the Engine of Application State (HATEOAS)</strong> ist ein Entwurfsprinzip von REST-Architekturen.
+                            Bei HATEOAS navigiert der Client einer REST-Schnittstelle ausschließlich über URLs, welche vom Server bereitgestellt werden.
+                        </p>
+                        <small>Quelle: <a href="https://de.wikipedia.org/wiki/Representational_State_Transfer#HATEOAS<">Wikipedia</a></small>
+                    </section>
+
+                    <!-- Hydra -->
+
+                    <section>
+                        <h2>Hydra</h2>
+                        <p>W3C Community Group</p>
+                    </section>
+
+                    <section>
+                        <h3>Header</h3>
+                        <pre>Link: <$apiUrl>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"</pre>
+                    </section>
+
+                    <section>
+                        <h3>Strukturen</h3>
+                        <pre><code>{
+    "@context": {"@vocab": "http://www.w3.org/ns/hydra/core#"},
+    "@id": "/hydra/api-demo/vocab",
+    "@type": "ApiDocumentation",
+    "supportedClass": [{
+        "@id": "http://www.markus-lanthaler.com/hydra/api-demo/vocab#User",
+        "@type": "Class",
+        "http://www.w3.org/2000/01/rdf-schema#label": "User",
+        "supportedOperation": [{
+            "@type": "Operation",
+            "http://www.w3.org/2000/01/rdf-schema#label": "Deletes a User entity",
+            "method": "DELETE",
+            "returns": {"@id": "http://www.w3.org/2002/07/owl#Nothing"},
+            "statusCodes": []
+        }],
+        "supportedProperty": [{
+            "title": "raised_issues",
+            "property": {
+                "@id": "http://www.markus-lanthaler.com/hydra/api-demo/vocab#User/raisedIssues",
+                "@type": "Link",
+                "http://www.w3.org/2000/01/rdf-schema#domain": {"@id": "http://www.markus-lanthaler.com/hydra/api-demo/vocab#User"},
+                "http://www.w3.org/2000/01/rdf-schema#label": "raised_issues",
+                "http://www.w3.org/2000/01/rdf-schema#range": {"@id": "http://www.w3.org/ns/hydra/core#Collection"},
+                "supportedOperation": {
+                    "@type": "Operation",
+                    "http://www.w3.org/2000/01/rdf-schema#label": "Retrieves the issues raised by a User entity",
+                    "method": "GET",
+                    "returns": {"@id": "http://www.w3.org/ns/hydra/core#Collection"},
+                    "statusCodes": {
+                        "statusCode": 404
+                    }
+                }
+            },
+            "readonly": true,
+            "writeonly": false
+        }]
+    }]
 }</code></pre>
+                    </section>
 
-          </section>
+                    <section>
+                        <h3>JavaScript</h3>
+                        <pre><code>hydra.model.load(baseUrl, context).then(function (entryPoint) {
+    var user = entryPoint.api.findClass('http://www.markus-lanthaler.com/hydra/api-demo/vocab#User').create()
 
-          <section>
-            <h3>TODO: weitere Standards</h3>
-            <ul>
-              <li class="fragment">RDFa</li>
-              <li class="fragment">Microformats</li>
-              <li class="fragment">RDF Schema</li>
-              <li class="fragment">Web Ontology Language OWL</li>
-              <li class="fragment">SPARQL</li>
-            </ul>
-          </section>
+    user.name = 'bergi'
+    user.email = 'bergi@example.org'
+    user.password = '123456'
 
-          <section>
-            <h2>TODO: Verwendung</h2>
-            <ul>
-              <li class="fragment">Metadaten in Adobe Dateiformaten (<a href="http://www.adobe.com/products/xmp.html">XMP</a>)</li>
-              <li class="fragment"><a href="http://www.rssboard.org/rss-0-9-0">RSS 0.90</a></li>
-              <li class="fragment">Wikipedia (<a href="https://query.wikidata.org/">Wikidata Query Service</a>)</li>
-              <li class="fragment"></li>
-              <li class="fragment"></li>
-            </ul>
-          </section>
+    return entryPoint.registerUser.post(user)
+}).then(function (registeredUser) {
 
-          <section>
-            <h2>RDF & JavaScript (RDF-Ext)</h2>
-          </section>
-
-          <section>
-            <h3>JavaScript Bibliotheken</h3>
-            <ul>
-              <li>JSON-LD</li>
-              <li>N3.js</li>
-              <li>rdflib.js</li>
-              <li>RDF-Ext</li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>RDF-Ext - Parser und Serializer</h3>
-            <ul>
-              <li>Unterstützung für die verbreitetsten Formate (Turtle, JSON-LD, XML)</li>
-              <li>Callback, Promise und Streaming Interface</li>
-            </ul>
-          </section>
-
-          <section>
-            <h3>RDF-Ext - Clownface für Graph Traversierung</h3>
-            <pre><code>TODO:</code></pre>
-          </section>
-
-          <section>
-            <h3>RDF-Ext - SimpleRDF Graph to Object Mapping</h3>
-            <pre><code>TODO:</code></pre>
-          </section>
+})</code></pre>
+                    </section>
 				</section>
 
-				<section>
-          <section>
-            <h1>Hypermedia-Driven Web APIs</h1>
-          </section>
+                <section>
+                    <section>
+                        <h1>Linked Data Hypermedia-Driven Web APIs für Home Automation</h1>
+                    </section>
 
-          <section>
-            <h2>Idee</h2>
-          </section>
+                    <section>
+                        <h3>TODO: Strukturen</h3>
+                    </section>
 
-          <section>
-            <h3>TODO: Navigation für den User im HTML Interface</h3>
-          </section>
+                    <section>
+                        <h3>TODO: Web Components</h3>
+                    </section>
 
-          <section>
-            <h3>TODO: Navigation auch in Datenstrukturen mit Links</h3>
-          </section>
-
-          <section>
-            <h2>Hydra</h2>
-          </section>
-
-          <section>
-            <h3>Header & Strukturen</h3>
-          </section>
-
-          <section>
-            <h3>Beispiel</h3>
-          </section>
-				</section>
-
-        <section>
-          <section>
-            <h1>Linked Data Hypermedia-Driven Web APIs für Home Automation</h1>
-          </section>
-
-          <section>
-            <h3>TODO: Strukturen</h3>
-          </section>
-
-          <section>
-            <h3>TODO: Web Components</h3>
-          </section>
-
-          <section>
-            <h3>TODO: Neural Network</h3>
-          </section>
-        </section>
-
-        <ul>
-          <li><a href="http://www.w3.org/TR/rdf11-concepts/">RDF 1.1 Concepts and Abstract Syntax</a></li>
-        </ul>
+                    <section>
+                        <h3>TODO: Neural Network</h3>
+                    </section>
+                </section>
 
 			</div>
 
