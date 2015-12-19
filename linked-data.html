@@ -47,39 +47,28 @@
                         <h1>Linked Data & Hypermedia-Driven Web APIs</h1>
                         <p>
                             Thomas Bergwinkl
-
-                        </p>
-                        <small>
-                            Chief Research Officer, <a href="http://www.zazuko.com">Zazuko</a><br>
-                            Software Engineer, <a href="http://www.bulwiengesa.de">bulwiengesa</a><br>
                             <a href="https://twitter.com/bergi_bergos">@bergi_bergos</a>
+                        </p>
+                        <small style="float: left;">
+                            <a href="http://www.zazuko.com/">
+                                <img src="zazuko-logo.png" style="border: none; box-shadow: none;"><br>
+                            </a>
+                            Chief Research Officer, <a href="http://www.zazuko.com">Zazuko</a><br>
                         </small>
-
+                        <small style="float: right;">
+                            <a href="http://www.bulwiengesa.de/">
+                                <img src="bulwiengesa-logo.png" style="border: none; box-shadow: none;"><br>
+                            </a>
+                            Software Engineer, <a href="http://www.bulwiengesa.de/">bulwiengesa</a><br>
+                        </small>
                     </section>
 
                     <section>
                         <h2>Agenda</h2>
                             <ul>
-                                <li>
-                                    Linked Data
-                                    <ul>
-                                        <li>RDF Konzepte</li>
-                                        <li>Formate</li>
-                                        <li>weitere Standards</li>
-                                        <li>Verbreitung</li>
-                                        <li>RDF & JavaScript (RDF-Ext)</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    Hypermedia-Driven Web APIs
-                                    <ul>
-                                        <li>Idee</li>
-                                        <li>Hydra</li>
-                                    </ul>
-                                </li>
-                                <li>
-                                    Linked Data Hypermedia-Driven Web APIs für Home Automation
-                                </li>
+                                <li>Linked Data (Konzept, Standards, JavaScript)</li>
+                                <li>Hypermedia-Driven Web APIs (Idee, Hydra)</li>
+                                <li>Linked Data Hypermedia-Driven Web APIs für Home Automation</li>
                             </ul>
                         </section>
                     </section>
@@ -162,10 +151,9 @@
                     <section>
                         <h3>Dann das Predicate</h3>
                         <div style="float: left;">
-                            <h4>http://schema.org/name</h4>
                             <table>
                                 <thead>
-                                    <tr><th>ID</th><th>Name</th></tr>
+                                    <tr><th>ID</th><th>http://schema.org/name</th></tr>
                                 </thead>
                                 <tbody>
                                     <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>Thomas Bergwinkl</td></tr>
@@ -176,10 +164,9 @@
                             </table>
                         </div>
                         <div style="float: right;">
-                            <h4>http://schema.org/knows</h4>
                             <table>
                                 <thead>
-                                    <tr><th>Source</th><th>Target</th></tr>
+                                    <tr><th>Source</th><th>http://schema.org/knows</th></tr>
                                 </thead>
                                 <tbody>
                                     <tr><td>https://www.bergnet.org/people/bergi/card#me</td><td>http://melvincarvalho.com/#me</td></tr>
@@ -210,10 +197,8 @@
                     </section>
 
                     <section>
-                        <h3></h3>
-                        <ul>
-                            <li><a href="http://www.w3.org/TR/rdf11-concepts/">RDF 1.1 Concepts and Abstract Syntax</a></li>
-                        </ul>
+                        <h3>Specification</h3>
+                        <a href="http://www.w3.org/TR/rdf11-concepts/">RDF 1.1 Concepts and Abstract Syntax</a>
                     </section>
 
                     <!-- Formate -->
@@ -223,7 +208,7 @@
                     </section>
 
                     <section>
-                        <h3>N-Triples</h3>
+                        <h3><a href="http://www.w3.org/TR/n-triples/">N-Triples</a></h3>
                         <!--
 
 <https://www.bergnet.org/people/bergi/card#me> <http://schema.org/name> "Thomas Bergwinkl" .
@@ -246,7 +231,7 @@
                     </section>
 
                     <section>
-                        <h3>Turtle</h3>
+                        <h3><a href="http://www.w3.org/TR/turtle/">Turtle</a></h3>
                         <!--
 
 @prefix s: <http://schema.org/> .
@@ -288,7 +273,7 @@
                     </section>
 
                     <section>
-                        <h3>JSON-LD</h3>
+                        <h3><a href="http://www.w3.org/TR/json-ld/">JSON-LD</a></h3>
                         <!--
 
 {
@@ -354,11 +339,11 @@
                     <section>
                         <h3>weitere Standards</h3>
                         <ul>
-                            <li class="fragment">RDFa</li>
-                            <li class="fragment">Microformats</li>
-                            <li class="fragment">RDF Schema</li>
-                            <li class="fragment">Web Ontology Language OWL</li>
-                            <li class="fragment">SPARQL</li>
+                            <li class="fragment"><a href="http://www.w3.org/TR/xhtml-rdfa-primer/">RDFa</a></li>
+                            <li class="fragment"><a href="http://www.w3.org/TR/microdata/">Microdata</a></li>
+                            <li class="fragment"><a href="http://www.w3.org/TR/rdf-schema/">RDF Schema</a></li>
+                            <li class="fragment"><a href="http://www.w3.org/TR/owl2-overview/">Web Ontology Language OWL</a></li>
+                            <li class="fragment"><a href="http://www.w3.org/TR/sparql11-overview/">SPARQL</a></li>
                         </ul>
                     </section>
 
@@ -398,12 +383,57 @@
 
                     <section>
                         <h3>RDF-Ext - Clownface für Graph Traversierung</h3>
-                        <pre><code>TODO:</code></pre>
+                        <pre><code class="js">var cf = rdf.cf.Graph(graph);
+
+// start at Amy Farrah Fowlers IRI node
+var result = cf.node('http://localhost:8080/data/person/amy-farrah-fowler')
+    // search all people Amys knows using the predicate schema.org/knows in subject -> object direction
+    .out('http://schema.org/knows')
+    // search all given names of known people using the predicate schema.org/givenName in subject -> object direction
+    .out('http://schema.org/givenName')
+    // return the array of given names of all known people as an array of string values
+    .literal()
+    // and join the values separated by commas for output
+    .join(',');</code></pre>
+
+                        <small>Quelle: <a href="https://github.com/zazukoians/rdfjs-primer/blob/master/samples/10-clownface-graph.js">RDF-Ext Primer</a></small>
                     </section>
 
                     <section>
                         <h3>RDF-Ext - SimpleRDF Graph to Object Mapping</h3>
-                        <pre><code>TODO:</code></pre>
+                        <pre><code class="js">var blogContext = {
+    name: 'http://schema.org/name',
+    post: {
+        '@id': 'http://schema.org/post',
+        '@array': true
+    },
+    headline: 'http://schema.org/headline',
+    content: 'http://schema.org/content'
+}
+
+var blog = simple(blogContext, 'http://example.org/blog')
+
+var blogPostA = blog.child()
+blogPostA.headline = 'first post'
+blogPostA.content = 'this is my first blog post'
+blog.post.push(blogPostA)
+
+var blogPostB = blog.child()
+blogPostB.headline = 'second post'
+blogPostB.content = 'this is my second blog post'
+blog.post.push(blogPostB)</code></pre>
+
+                        <pre><code>&lt;http://example.org/blog&gt; &lt;http://schema.org/post&gt; _:b1 , _:b2 .
+
+_:b1
+    &lt;http://schema.org/headline&gt; &quot;first post&quot; ;
+    &lt;http://schema.org/content&gt; &quot;this is my first blog post&quot; .
+
+_:b2
+    &lt;http://schema.org/headline&gt; &quot;second post&quot; ;
+    &lt;http://schema.org/content&gt; &quot;this is my second blog post&quot; .</code></pre>
+
+                        <small>Quelle: <a href="https://github.com/nicola/simplerdf/blob/master/examples/deep-structure.js">SimpleRDF</a></small>
                     </section>
                 </section>
 
@@ -422,7 +452,7 @@
                         <p class="fragment">HTML Interfaces enthalten Elemente für die Navigation</p>
                         <p class="fragment">APIs sollten sich ebenfalls selbst beschreiben</p>
                         <p class="fragment">Die Beschreibung sollte maschinenlesbar sein</p>
-                        <p class="fragment">Dezentralle Strukturen erlauben</p>
+                        <p class="fragment">und dezentralle Strukturen erlauben</p>
                     </section>
 
                     <section>
@@ -438,17 +468,21 @@
 
                     <section>
                         <h2>Hydra</h2>
-                        <p>W3C Community Group</p>
+                        <p>
+                            Hydra kombiniert HATEOAS und RDF/Linked Data.
+
+                        </p>
+                        <small><a href="http://www.hydra-cg.com/">W3C Community Group</a></small>
                     </section>
 
                     <section>
                         <h3>Header</h3>
-                        <pre>Link: <$apiUrl>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"</pre>
+                        <pre><code>Link: <$apiUrl>; rel="http://www.w3.org/ns/hydra/core#apiDocumentation"</code></pre>
                     </section>
 
                     <section>
                         <h3>Strukturen</h3>
-                        <pre><code>{
+                        <pre><code class="json">{
     "@context": {"@vocab": "http://www.w3.org/ns/hydra/core#"},
     "@id": "/hydra/api-demo/vocab",
     "@type": "ApiDocumentation",
@@ -486,11 +520,14 @@
         }]
     }]
 }</code></pre>
+
+                        <small><a href="http://www.markus-lanthaler.com/hydra/console/">Hydra Console</a></small><br>
+                        <small>Quelle: <a href="http://www.markus-lanthaler.com/hydra/api-demo/vocab">Hydra API-Demo</a></small>
                     </section>
 
                     <section>
                         <h3>JavaScript</h3>
-                        <pre><code>hydra.model.load(baseUrl, context).then(function (entryPoint) {
+                        <pre><code class="js">hydra.model.load(baseUrl, context).then(function (entryPoint) {
     var user = entryPoint.api.findClass('http://www.markus-lanthaler.com/hydra/api-demo/vocab#User').create()
 
     user.name = 'bergi'
@@ -510,15 +547,54 @@
                     </section>
 
                     <section>
-                        <h3>TODO: Strukturen</h3>
+                        <h3>Weshalb?</h3>
+                        <ul>
+                            <li>IRIs erlauben beliebige Strukturen</li>
+                            <li>auch bei Operationen</li>
+                            <li>man "spricht" nur HTTP</li>
+                        </ul>
                     </section>
 
                     <section>
-                        <h3>TODO: Web Components</h3>
+                        <h3>Hydra-Middleware</h3>
+                        <ul>
+                            <li>Operationen werden auf Basis von SimpleRDF Objekten implementiert</li>
+                            <li>Factory mit Routing erlaubt IRI Strukturen ähnlich denen von Express</li>
+                            <li>als Express Middleware implementiert</li>
+                        </ul>
                     </section>
 
                     <section>
-                        <h3>TODO: Neural Network</h3>
+                        <h3>Web Components</h3>
+                        <pre><code class="html">&lt;dh-state-toggle-button iri=&quot;http://example.org/living-room/light&quot;&gt;&lt;/dh-state-toggle-button&gt;</code></pre>
+                        <p>
+                            Es muss nur die Geräte IRI angegeben werden, mit Hydra werden die API Informationen nachgeladen.
+                        </p>
+                    </section>
+
+                    <section>
+                        <h3>Intelligente Steuerung mit neuronalen Netzen</h3>
+                        <img src="NN.svg" style="height: 500px;">
+                    </section>
+
+                    <section>
+                        <h3>Verkettung von Operationen</h3>
+                        <p>
+                            Mehere Operationen können in einer Promise-Chain verkettet werden um numerischer Werte zu erzeugen.
+                            Hydra Operationen liefern auch Informationen über die Ein- und Ausgangsdaten.
+                            Ein Wizard könnte zur Erstellung der Verkettung genutzt werden.
+                        </p>
+                        <pre><code>// Temperaturen von -50 bis +50 Grad auf 0-1 skalieren
+return thermometer.getTemperature().then(add(50)).then(scale(100))
+
+// Zuhause?
+return calendar.getCurrentEvent().then(getEventLocation).then(getDistance('48° 32′ N, 12° 9′ O'))</code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h1>Noch Fragen?</h1>
                     </section>
                 </section>
 
